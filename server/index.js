@@ -10,7 +10,25 @@ server.get('/', async (request, reply) => {
 
 server.get('/debug', async (request, reply) => {
   console.log(request.headers)
-  return JSON.stringify(request.headers, null, 4)
+  reply.type('text/html')
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <code>${JSON.stringify(request.headers, null, 4)}</code>
+
+            <h3 id="mini"></h3>
+
+            <script>
+              if (window.operamini) {
+                document.getElementById("mini").innerText = "MINI"
+              }
+            </script>
+        </head>
+    </html>
+  `
 })
 
 // Run the server!
