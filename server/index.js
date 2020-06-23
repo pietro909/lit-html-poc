@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 // Require the framework and instantiate it
 const server = require('fastify')({ logger: true })
 
@@ -8,27 +10,23 @@ server.get('/', async (request, reply) => {
   return { hello: 'world' }
 })
 
-server.get('/debug', async (request, reply) => {
+server.post('/source', async (request, reply) => {
+  console.log(request)
+  return "done"
+})
+
+
+server.get('/debug', (request, reply) => {
   console.log(request.headers)
-  reply.type('text/html')
-  return `
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <code>${JSON.stringify(request.headers, null, 4)}</code>
 
-            <h3 id="mini"></h3>
-
-            <script>
-              if (window.operamini) {
-                document.getElementById("mini").innerText = "MINI"
-              }
-            </script>
-        </head>
-    </html>
-  `
+  fs.readFile('server/index.html', 'utf-8', (err, data) => {
+    if (err) {
+      throw err
+    }
+    reply.type('text/html')
+    const parsed = data.replace(/HEADERS/, JSON.stringify(request.headers, null, 4))
+    reply.send(parsed)
+  })
 })
 
 // Run the server!

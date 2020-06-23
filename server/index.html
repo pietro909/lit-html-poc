@@ -1,0 +1,69 @@
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <style>
+            html, body {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              margin: 0;
+            }
+
+            body {
+              font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            header {
+              padding: 1rem;
+              background: #003366;
+              color: #fff;
+              align-items: center;
+              justify-content: center;
+            }
+
+            section {
+              padding: 1rem;
+            }
+
+            a {
+                color: white;
+                font-size: 0.7rem;
+            }
+
+            .primary {
+              color: #003366;
+            }
+
+            .hide { display: none; }
+
+            #mini {
+              font-family: cursive;
+            }
+
+          </style>
+
+          <header>
+            <h2>Is Opera Mini in extreme mode?</h2>
+            <h3 id="mini"></h3>
+            <a id="post" href="server:source?post=http://heuristic-panini.herokuapp.com/source">Post page</a>
+          </header>
+
+          <section>
+            <h2 class="primary">Headers</h2>
+            <code>HEADERS</code>
+          <section>
+
+          <script>
+            if (window.operamini) {
+              document.getElementById("mini").innerText = "YEAH baby!"
+              for (n in window.operamini) { console.log(n) }
+            } else {
+              document.getElementById("mini").innerText = "nope"
+              document.getElementById("post").className = "hide"
+            }
+          </script>
+      </head>
+  </html>
+
