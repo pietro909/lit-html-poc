@@ -1,12 +1,16 @@
 import { html } from 'lit-html';
 
-export const burger = html`
+export const burger = html``
+
+/*
 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2V0H12V2H0ZM0 7H12V5H0V7ZM0 12H12V10H0V12Z" fill="white" fill-opacity="0.3"/>
 </svg>
 `;
+*/
 
-export const logo = html`
+export const logo = html``
+  /*
   <svg width="64" height="14" viewBox="0 0 64 14" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0)">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M60.1595 7.01493C60.1595 10.4285 59.6617 11.2131 57.4986 11.2131C55.335 11.2131 54.8377 10.4285 54.8377 7.01493C54.8377 3.55993 55.335 2.76536 57.4986 2.76536C59.6617 2.76536 60.1595 3.55993 60.1595 7.01493ZM57.4986 0.0251465C53.0142 0.0251465 51.7173 1.59288 51.7173 7.01493C51.7173 12.3969 53.0142 13.9533 57.4986 13.9533C61.9829 13.9533 63.2794 12.3969 63.2794 7.01493C63.2794 1.59288 61.9829 0.0251465 57.4986 0.0251465Z" fill="#FFFFFE"/>
@@ -23,6 +27,7 @@ export const logo = html`
   </defs>
 </svg>
 `;
+*/
 
 export const person = html`
 
