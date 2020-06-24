@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "A simple lit-html starter project.",
   "main": "index.html",
+  "type": "module",
   "scripts": {
     "start": "node server/index.js",
     "dev": "parcel index.html --open",
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "@popeindustries/lit-html-server": "^3.1.0",
     "fastify": "^2.15.0",
+    "jsdom": "^16.2.2",
     "lit-html": "^1.1.2"
   },
   "devDependencies": {

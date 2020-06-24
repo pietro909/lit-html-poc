@@ -1,13 +1,20 @@
-const fs = require('fs')
+import fs from 'fs'
+import litHtmlServer from '@popeindustries/lit-html-server'
+import fastify from 'fastify'
+import index from '../client/index.js'
 
-// Require the framework and instantiate it
-const server = require('fastify')({ logger: true })
-
+const server = fastify({ logger: true })
 const PORT = process.env.PORT || 3000
 
 // Declare a route
-server.get('/', async (request, reply) => {
-  return { hello: 'world' }
+server.get('/', (request, reply) => {
+  // TODO: render template
+  const data = { title: 'Home', api: '/api/home' };
+
+  litHtmlServer.renderToString(index(data)).then(page => {
+    reply.type('text/html')
+    reply.send(page)
+  })
 })
 
 server.post('/source', async (request, reply) => {
