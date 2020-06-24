@@ -1,10 +1,19 @@
 import fs from 'fs'
 import litHtmlServer from '@popeindustries/lit-html-server'
 import fastify from 'fastify'
+import fastifyStatic from 'fastify-static'
+import path from 'path'
 import index from '../client/index.js'
 
 const server = fastify({ logger: true })
 const PORT = process.env.PORT || 3000
+const __dirname = path.resolve();
+
+
+server.register(fastifyStatic, {
+  root: path.join(__dirname, 'src'),
+  prefix: '/public/', // optional: default '/'
+})
 
 // Declare a route
 server.get('/', (request, reply) => {
