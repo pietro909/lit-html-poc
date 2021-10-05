@@ -13,7 +13,7 @@
     "@popeindustries/lit-html-server": "^3.1.0",
     "@testmail.app/graphql-request": "^1.8.4",
     "fastify": "^2.15.0",
-    "fastify-static": "^2.7.0",
+    "fastify-static": "^4.2.4",
     "jsdom": "^16.2.2",
     "lit-html": "^1.1.2"
   },
